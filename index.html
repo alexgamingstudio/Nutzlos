@@ -1,0 +1,172 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Nutzlos aber geil</title>
+  <style>
+    body {
+      font-family: 'Segoe UI', sans-serif;
+      margin: 0;
+      background: #1e1e1e;
+      color: #f0f0f0;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      padding: 2rem;
+    }
+
+    header {
+      text-align: center;
+      margin-bottom: 3rem;
+    }
+
+    h1 {
+      font-size: 3rem;
+      margin-bottom: 0.2rem;
+    }
+
+    p.slogan {
+      font-style: italic;
+      color: #aaa;
+    }
+
+    section {
+      background: #2a2a2a;
+      padding: 2rem;
+      margin: 1rem 0;
+      border-radius: 8px;
+      width: 100%;
+      max-width: 600px;
+      box-shadow: 0 0 10px rgba(255,255,255,0.05);
+    }
+
+    button {
+      background: #ff0077;
+      color: white;
+      border: none;
+      padding: 0.7rem 1.5rem;
+      border-radius: 5px;
+      cursor: pointer;
+      margin-top: 1rem;
+    }
+
+    button:hover {
+      background: #ff3399;
+    }
+
+    input[type="number"] {
+      padding: 0.5rem;
+      width: 100px;
+      margin: 0.5rem;
+      border-radius: 4px;
+      border: none;
+    }
+
+    #progressBar {
+      width: 100%;
+      background: #444;
+      border-radius: 20px;
+      overflow: hidden;
+      height: 20px;
+      margin-top: 1rem;
+    }
+
+    #bar {
+      width: 99.9%;
+      height: 100%;
+      background: #00ff88;
+    }
+
+    footer {
+      margin-top: 4rem;
+      font-size: 0.9rem;
+      color: #666;
+      text-align: center;
+    }
+  </style>
+</head>
+<body>
+
+  <header>
+    <h1>Nutzlos aber geil</h1>
+    <p class="slogan">Weil dein Gehirn auch mal abschalten darf.</p>
+  </header>
+
+  <!-- Weisheits-Button -->
+  <section>
+    <h2>💡 Weisheit auf Knopfdruck</h2>
+    <p id="weisheit">Drücke den Button und werde erleuchtet.</p>
+    <button onclick="zeigeWeisheit()">Erleuchte mich!</button>
+  </section>
+
+  <!-- Pommes-Rechner -->
+  <section>
+    <h2>🍟 Pommes-Rechner</h2>
+    <input type="number" id="num1" placeholder="Zahl 1">
+    <input type="number" id="num2" placeholder="Zahl 2">
+    <button onclick="rechnePommes()">=</button>
+    <p id="pommesErgebnis">Ergebnis: ??? Pommes</p>
+  </section>
+
+  <!-- Endlos-Fortschrittsbalken -->
+  <section>
+    <h2>🔄 Fortschritt des Lebens</h2>
+    <p>Wichtiger Fortschritt wird geladen...</p>
+    <div id="progressBar">
+      <div id="bar"></div>
+    </div>
+    <p>99.9% – fast da... aber nicht ganz.</p>
+  </section>
+
+  <!-- Zufallsfakt -->
+  <section>
+    <h2>📢 Wusstest du schon?</h2>
+    <p id="zufallsfakt">Klick unten für nutzloses Wissen.</p>
+    <button onclick="zeigeFakt()">Mehr Quatsch!</button>
+  </section>
+
+  <footer>
+    <p>&copy; 2025 Nutzlos aber geil GmbH. Verantwortlich: Niemand. Wirklich niemand.</p>
+  </footer>
+
+  <script>
+    const weisheiten = [
+      "Ein Apfel am Tag hält das WLAN nicht stabil.",
+      "Wer heute nichts tut, hat morgen frei.",
+      "Wer zu spät kommt, hat wenigstens ausgeschlafen.",
+      "Die Realität ist nur eine Illusion – verursacht durch zu wenig Kaffee.",
+      "42 ist nicht die Antwort. Es ist der Witz.",
+    ];
+
+    const fakten = [
+      "Katzen können nicht rückwärts niesen. Wahrscheinlich.",
+      "98 % aller Zahlen sind größer als 1.",
+      "Diese Website wurde in völliger Sinnlosigkeit erstellt.",
+      "Wenn du das hier liest, hast du definitiv zu viel Zeit.",
+      "Ein Luftballon wiegt im Weltraum genau gleich viel wie dein Humor.",
+    ];
+
+    function zeigeWeisheit() {
+      const i = Math.floor(Math.random() * weisheiten.length);
+      document.getElementById("weisheit").textContent = weisheiten[i];
+    }
+
+    function rechnePommes() {
+      const a = parseFloat(document.getElementById("num1").value);
+      const b = parseFloat(document.getElementById("num2").value);
+      if (!isNaN(a) && !isNaN(b)) {
+        const summe = a + b;
+        document.getElementById("pommesErgebnis").textContent = "Ergebnis: " + summe + " Pommes";
+      } else {
+        document.getElementById("pommesErgebnis").textContent = "Bitte Zahlen eingeben. Aber hey, Pommes!";
+      }
+    }
+
+    function zeigeFakt() {
+      const i = Math.floor(Math.random() * fakten.length);
+      document.getElementById("zufallsfakt").textContent = fakten[i];
+    }
+  </script>
+</body>
+</html>
